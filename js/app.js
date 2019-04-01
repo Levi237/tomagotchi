@@ -30,6 +30,8 @@ class Pet {
     }
 }
 
+let myPet = {};
+
 //-->  const PetDude = new Pet (${addNameHereFromPrompt}, egg)
     // Display a character of your choice on the screen to represent your pet
 //--> m = character?
@@ -70,7 +72,7 @@ const turnOffLights = () => {
     // Animate your pet across the screen while it's alive.
 
 //create a display to show stats
-let myPet = {};
+
 
 const bored = {
     displayValue: '0',
@@ -92,18 +94,20 @@ const updateBoredDisplay = () => {
 //--> EVENT LISTENERS <--\\
 document.querySelector('#feed').addEventListener('click', () => {
     console.log("feed button clicked")    
-    myPet.hunger = 10;
+    myPet.hunger = 1;
+    alert(`${myPet.name} loves bananas`)
 })
 
 document.querySelector('#play').addEventListener('click', () => {
 console.log("play button clicked")    
-    myPet.bored = 10;  
+    myPet.bored = 1;  
+    alert(`${myPet.name} is bored, let's play!`)
 }) 
-
 
 document.querySelector('#rest').addEventListener('click', () => {
 console.log("rest button clicked")    
-    myPet.sleep = 10;
+    myPet.sleep = 1;
+    alert(`${myPet.name} is sleepy, lights off!`);
 })
 
 document.querySelector(".submitBtn").addEventListener('click', () => {
