@@ -13,7 +13,7 @@ class Pet {
         this.name = name;
         this.age = 0;
         this.hunger = 0;
-        this.sleepy = 0;
+        this.sleep = 0;
         this.bored = 0;
     }
     feed(){
@@ -70,6 +70,8 @@ const turnOffLights = () => {
     // Animate your pet across the screen while it's alive.
 
 //create a display to show stats
+let myPet = {};
+
 const bored = {
     displayValue: '0',
   };
@@ -89,30 +91,28 @@ const updateBoredDisplay = () => {
 
 //--> EVENT LISTENERS <--\\
 document.querySelector('#feed').addEventListener('click', () => {
-console.log("feed button clicked")    
+    console.log("feed button clicked")    
+    myPet.hunger = 10;
 })
 
 document.querySelector('#play').addEventListener('click', () => {
 console.log("play button clicked")    
-})
+    myPet.bored = 10;  
+}) 
+
 
 document.querySelector('#rest').addEventListener('click', () => {
 console.log("rest button clicked")    
+    myPet.sleep = 10;
 })
 
 document.querySelector(".submitBtn").addEventListener('click', () => {
     console.log("input entered")
     const petName = document.querySelector('#submitScreen').value
     console.log(petName);
-    const myTomagotchi = new Pet(petName);
-    alert("You have a new pet, say hello to " +petName);
-
-    // <input type="text" placeholder="name your pet">
-    // <button type="submit" class="submitBtn">submit</button>
-
-    // const valueOfInput = document.querySelector("submit").value()//$('#input-box').val();
-    // console.log(valueOfInput)
-    // alert("Hi! your favorite show is: "+valueOfInput)
+    myPet = new Pet(petName);
+    alert("You have a new pet, say hello to " +myPet.name);
+    console.log(myPet.name+" last log")
 })
 
 
