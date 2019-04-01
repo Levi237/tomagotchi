@@ -5,10 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="js/app.js" defer></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/app.js" defer></script>
 </head>
 <body>
-    
+    <div id="container">
+        <header>
+            <h1>TOMAGOTCHI</h1>
+        </header>
+        <footer>
+            <div>m</div>
+        <br>
+            <input id="hungry" class="view" value disabled>Hungry</input>
+            <button id="feed">Feed</button>
+        <br>
+            <input id="bored" class="view" value disabled>Bored</input>
+            <button id="play">Play</button>
+        <br>
+            <input id="tired" class="view" value disabled>Tired</input>
+            <button id="rest">Rest</button>
+        <br><br>
+            <input type="text" placeholder="name your pet" id="submitScreen">
+            <button type="submit" class="submitBtn">submit</button>
+        </footer>
+    </div>    
 </body>
 </html>

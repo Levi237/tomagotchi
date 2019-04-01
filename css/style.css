@@ -1,0 +1,24 @@
+
+body {
+    background-color: skyblue;
+}
+
+#container {
+    height: 30rem;
+    width: 30rem;   
+    border: 1px black solid;
+    text-align: center;
+    box-align: center;
+    background-color: green;
+}
+header {
+    height: 20rem;
+}
+
+footer {
+
+}
+
+.view {
+    width: 3rem;
+}
