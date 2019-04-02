@@ -31,38 +31,10 @@ class Pet {
 }
 
 let myPet = {};
-
-//-->  const PetDude = new Pet (${addNameHereFromPrompt}, egg)
-    // Display a character of your choice on the screen to represent your pet
-//--> m = character?
-    // Display the following metrics for your pet:
-    // Hunger (1-10 scale)
-    // Sleepiness (1-10 scale)
-    // Boredom (1-10 scale)
-    // Age
-    // Add buttons to the screen to feed your pet, turn off the lights, and play with your pet.
-//--> create functinos for feed, play, rest
-const feedToma = () => {
-
-}
-
-const playTime = () => {
-
-}
-
-const turnOffLights = () => {
-
-}
-
-
-    // Add the ability to name your pet.
-    // Style the page.
-    // Increase your pet's age every x minutes
-//--> pets age += every x minutes
-//--> create a countdown from span of age (x minutes)
-//--> for every x amount of seconds T needs Hunger, Sleepiness, and Bored metrics to change "every so many"
-
-//--> create functions to feed, play and rest for pet.
+let age;
+let bored;
+let hungry;
+let tired;
 
     // Increase your pet's Hunger, Sleepiness, and Bored metrics on an interval of your choosing.
 //-- as time increases increase hunger level, sleepiness, and boredom
@@ -73,24 +45,32 @@ const turnOffLights = () => {
 
 //create a display to show stats
 
+//--> EXAMPLE COUNTER
+// inter = setInterval(() => {
+//     // console.log('hi')
+//     myPet.age++
+//     if (myPet.age === 50){
+//         clearInterval(inter)
+//         console.log("congrats, your pet has died of old age")
+//     }
+//     }, 30000)
 
-const bored = {
-    displayValue: '0',
-  };
-
-const tired = {
-    displayValue: '0',
-  };
-
-const hungry = {
-    displayValue: '0',
-  };
-
-const updateBoredDisplay = () => {
-    const display = document.querySelector('#bored');
-    display.value = bored.displayValue;
-}
-
+// const timeout = setTimeout(() => {
+//     clearInterval(inter); 
+//     console.log("done")
+//     this.age = this.age++;
+//     console.log(this.age)
+//     }, 10000);
+// inter = setInterval(() => {
+//     // console.log('hi')
+//     myPet.age++
+//     if (myPet.age === 50){
+//         clearInterval(inter)
+//         console.log("congrats, your pet has died of old age")
+//     }
+//     }, 3000)
+const actionimage = document.querySelector("#image");
+const prompt = document.querySelector("#prompt");
 //--> EVENT LISTENERS <--\\
 document.querySelector('#feed').addEventListener('click', () => {
     console.log("feed button clicked")    
@@ -115,11 +95,40 @@ document.querySelector(".submitBtn").addEventListener('click', () => {
     const petName = document.querySelector('#submitScreen').value
     console.log(petName);
     myPet = new Pet(petName);
-    alert("You have a new pet, say hello to " +myPet.name);
-    console.log(myPet.name+" last log")
-})
-
-
+    // alert("You have a new pet, say hello to " +myPet.name);
+//--> insert image
+// prompt = myPet.name
+    actionimage.src = "https://media3.giphy.com/media/l2RsBwQxFPXUvXmi0u/200w.webp?cid=ecf05e475ca2a29171574f38672f524e"
+    // document.querySelector('p')
+    // document.paragraph.appendChild(document.createElement('<img src="https://media3.giphy.com/media/l2RsBwQxFPXUvXmi0u/200w.webp?cid=ecf05e475ca2a29171574f38672f524e">'))
+    // src="
+//--> INTERVAL TIMER
+        inter = setInterval(() => {
+            // console.log('hi')
+            myPet.age++
+            if (myPet.age === 50){
+                clearInterval(inter)
+                console.log("congrats, your pet has died of old age")
+            }}, 3000)
+        bored = setInterval(() => {
+            myPet.bored++
+            if (myPet.bored === 10){  // end game
+            clearInterval(bored)
+            console.log("Sorry your pet got sick and died")
+            }}, 3000);
+        hungry = setInterval(() => {
+            myPet.hungry++
+            if (myPet.hungry === 10){  // end game
+                clearInterval(hungry)
+                console.log("Sorry your pet starved to death")
+            }}, 1000);    
+        tired = setInterval(() => {
+            myPet.tired++
+            if (myPet.tired === 10){  // end game
+                clearInterval(tired)
+                console.log("Sorry your pet went insane and commitd suicide")
+            }}, 3000);    
+        })
 
 // //--> COUNTER  <--\\
 // //setInterval                                  1000 = one second

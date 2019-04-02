@@ -1,0 +1,60 @@
+
+.squares {
+    width:  1rem;
+    height: 1rem;
+    margin-right: 1%;
+    display: inline-block;
+    background-color: blue;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+.blue-box1 {
+    width:  1rem;
+    height: 1rem;
+    margin-right: 1%;
+    display: inline-block;
+    background-color: blue;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+
+#white-square {
+    width:  1rem;
+    height: 1rem;
+    margin-right: 1%;
+    display: inline-block;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+body {
+    background-color: skyblue;
+}
+
+#container {
+    height: 30rem;
+    width: 30rem;   
+    border: 1px black solid;
+    text-align: center;
+    box-align: center;
+    background: linear-gradient(to top right, green, black);
+}
+header {
+    height: 20rem;
+}
+
+footer {
+    width: 16rem;
+    margin: 0 7rem;
+
+}
+
+.view {
+    width: 3rem;
+}
