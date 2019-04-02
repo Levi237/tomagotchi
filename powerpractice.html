@@ -15,28 +15,35 @@
             <p><img src="" id="image"></p>
             <p id="prompt"></p>
         </header>
-        <footer>
-<!-- BUILD A POWERBAR FROM 10 divs-->
-<div>
+<div id="bottom">
   <div>
+  <p id="age-ticker">WELCOME!</p>
+
+  </div>
+<!-- BUILD A POWERBAR FROM 10 divs-->
+  <div class="status-block" style="float: left">
     <progress id="hungry-bar" value="0" max="10"></progress>
     <br>
-    Hungry<button id="feed">Feed</button>
-</div>
-<div>
+    Hungry <button id="feed">Feed</button>
+  </div>
+  <div class="status-block" style="float:left">
     <progress id="bored-bar" value="0" max="10"></progress>
     <br>
     Bored <button id="play">Play</button>
-</div>
-<div>
+  </div>
+  <div class="status-block" style="float: left">
     <progress id="tired-bar" value="0" max="10" color="red"></progress>
     <br>
     Tired <button id="rest">Rest</button>
+  </div>
+  <!-- <br style="clear: left;" /> -->
 </div>
-
-        <br><br>
+        <br><br><br><br><br>
+        <footer>
             <input type="text" placeholder="name your pet" id="submitScreen">
+            <br>
             <button type="submit" class="submitBtn">submit</button>
+        
         </footer>
     </div>    
 </body>

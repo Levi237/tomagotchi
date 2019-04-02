@@ -27,12 +27,33 @@ let age;
 let bored;
 let hunger;
 let tired;
-let boredBarInterval;
-let hungerBarInterval;
-let tiredBarInterval;
+
 
 const actionimage = document.querySelector("#image");
 const prompt = document.querySelector("#prompt");
+
+
+
+// const ageTicker = () => {
+//     let ticker = document.querySelector("#age-ticker")
+//     if (myPet.age >= 0) {
+//     ticker.innerHTML = myPet.age;
+//     }
+// }
+// var paragraph = document.getElementById("p");
+// var text = document.createTextNode("This just got added");
+
+// paragraph.appendChild(text);
+
+// ageTicker()
+
+// document.addEventListener('click',(event) => {
+//     if ( event.target.querySelector('#1') ){
+//         const li = document.createElement('li');
+//         li.textContent = "1"  // turn this into button click value???
+        //    document.querySelector('#display').appendChild(li)
+    //         }
+    // }, false);
 
 // connect to powerbar
 
@@ -42,22 +63,21 @@ const hungryBar = () => {
         barHungry.value = myPet.hunger;
     }
 }
- //----> Mike Helped
-
 const boredBar = () => {
     let barBored = document.querySelector("#bored-bar")
     if (myPet.bored >= 0) {
         barBored.value = myPet.bored;
     }
 }
- 
 const tiredBar = () => {
     let barTired = document.querySelector("#tired-bar")
     if (myPet.tired >= 0) {
         barTired.value = myPet.tired;
     }
 }
-
+// let boredBarInterval;
+// let hungerBarInterval;
+// let tiredBarInterval;
 //--> EVENT LISTENERS <--\\
 document.querySelector('#feed').addEventListener('click', () => {
     console.log("feed button clicked")    
@@ -85,14 +105,14 @@ document.querySelector(".submitBtn").addEventListener('click', () => {
     const petName = document.querySelector('#submitScreen').value
     console.log(petName);
     myPet = new Pet(petName);
+    document.querySelector("#age-ticker").innerHTML = `${myPet.name} is ${myPet.age} toma years old!`;
     actionimage.src = "https://media3.giphy.com/media/l2RsBwQxFPXUvXmi0u/200w.webp?cid=ecf05e475ca2a29171574f38672f524e"
-
-
 //--> INTERVAL TIMER
-        inter = setInterval(() => {
+        age = setInterval(() => {
             myPet.age++
+            document.querySelector("#age-ticker").innerHTML = `${myPet.name} is ${myPet.age} toma years old!`;
             if (myPet.age === 50){
-                clearInterval(inter)
+                clearInterval(age)
                 console.log("congrats, your pet has died of old age")
             }}, 3000)
         bored = setInterval(() => {
@@ -100,27 +120,28 @@ document.querySelector(".submitBtn").addEventListener('click', () => {
             boredBar()
             if (myPet.bored === 10){  // end game
             clearInterval(bored)
-            clearInterval(boredBarInterval)
+            // clearInterval(boredBarInterval)
             console.log("Sorry your pet got sick and died")
-            }}, 3000);
+            }}, 4000);
         hunger = setInterval(() => {
             myPet.hunger++
             hungryBar()                                //----> Mike Helped
             if (myPet.hunger === 10){  // end game
                 clearInterval(hunger)
-                clearInterval(hungerBarInterval)       //----> Mike Helped
+                // clearInterval(hungerBarInterval)       //----> Mike Helped
                 console.log("Sorry your pet starved to death")
-            }}, 3000);    
+            }}, 2000);    
         tired = setInterval(() => {
             myPet.tired++
             tiredBar()
             if (myPet.tired === 10){  // end game
                 clearInterval(tired)
-                clearInterval(tiredBarInterval)
+                // clearInterval(tiredBarInterval)
                 console.log("Sorry your pet went insane and commitd suicide")
             }}, 3000);    
-            })
 
+
+})
 
 
 
