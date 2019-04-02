@@ -32,6 +32,9 @@ header {
     margin: 0 1rem;
 }
 
+#age-ticker {
+    font-size: 1.5rem;
+}
 
 /* property is  */
 /* animation: spin 5s infinite; */
