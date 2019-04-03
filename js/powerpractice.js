@@ -30,7 +30,7 @@ let tired;
 
 
 const actionimage = document.querySelector("#image");
-const prompt = document.querySelector("#prompt");
+// const prompt = document.querySelector("#prompt");
 
  
 const hungryBar = () => {
@@ -52,103 +52,78 @@ const tiredBar = () => {
     }
 }
 
-const resetGame = () => {
+const removePrompt = () => {
+    let element = document.getElementById('submitScreen');
+    element.parentNode.removeChild(element);
+    let e = document.getElementById('submitBtn');
+    e.parentNode.removeChild(e);
+}
+
+const gameOver = () => {
     if (myPet.hunger === 10 || myPet.tired === 10 || myPet.bored === 10){
-    console.log("reset game")
     clearInterval(bored);
     clearInterval(tired);
     clearInterval(hunger);
     clearInterval(ageInter);
-    actionimage.src = "https://media.giphy.com/media/l0Iydl9zWjbLvLv6U/giphy.gif";
-    document.querySelector("#age-ticker").innerHTML = `${myPet.name} is dead at age ${myPet.age}`;}
+    actionimage.src = "https://media.giphy.com/media/ktvFa67wmjDEI/giphy.gif";
+    document.querySelector("#age-ticker").innerHTML = `<b>${myPet.name}</b> is dead at age ${myPet.age}`;}
 }
-// let boredBarInterval;
-// let hungerBarInterval;
-// let tiredBarInterval;
-//--> EVENT LISTENERS <--\\
+
+//--> EVENT LISTENERS 
 document.querySelector('#feed').addEventListener('click', () => {  
-    myPet.hunger = 0;
-    actionimage.src = "https://media.giphy.com/media/dah9icgJA9AFG/giphy.gif";
-    hungryBar()     //---> Clayton Helped
-    // alert(`${myPet.name} loves bananas`)
+    myPet.hunger--;
+    actionimage.src = "https://media.giphy.com/media/w0CJXS2M44xfW/giphy.gif";
+    hungryBar()     
 })
+
 document.querySelector('#play').addEventListener('click', () => { 
-    myPet.bored = 0;
-    actionimage.src = "https://media.giphy.com/media/cDJq5MNA7GE6c/giphy.gif";
+    myPet.bored--;
+    actionimage.src = "https://media.giphy.com/media/s7zMzcaHs9j0s/giphy.gif";
     boredBar() 
-    // alert(`${myPet.name} is bored, let's play!`)
 }) 
+
 document.querySelector('#rest').addEventListener('click', () => {
-    myPet.tired = 0;
-    actionimage.src = "https://media.giphy.com/media/3o6ZsUJ44ffpnAW7Dy/giphy.gif";
+    myPet.tired--;
+    actionimage.src = "https://media.giphy.com/media/31AFIhDmJA86Y/giphy.gif";
     tiredBar()
-    // alert(`${myPet.name} is sleepy, lights off!`);
 })
+
 //----> SUBMIT CLICK
 document.querySelector(".submitBtn").addEventListener('click', () => {
     const petName = document.querySelector('#submitScreen').value
     myPet = new Pet(petName);
-    document.querySelector("#age-ticker").innerHTML = `${myPet.name} is ${myPet.age} toma years old!`;
-    actionimage.src = "https://media.giphy.com/media/GEfzIkjvLXNSM/giphy.gif";
+    document.querySelector("#age-ticker").innerHTML = `<b>${myPet.name}</b> is ${myPet.age} toma years old!`;
+    actionimage.src = "https://media.giphy.com/media/IMfi5ugpf3W1y/giphy.gif";//https://media.giphy.com/media/IMfi5ugpf3W1y/giphy.gif
+    removePrompt();
     //--> INTERVAL TIMER
         ageInter = setInterval(() => {
             myPet.age++
-            document.querySelector("#age-ticker").innerHTML = `${myPet.name} is ${myPet.age} toma years old!`;
-            // if (myPet.hunger === 10 || myPet.tired === 10 || myPet.bored === 10){
-            //     clearInterval(ageInter);
-                // alert("death!")
-            // }
+            document.querySelector("#age-ticker").innerHTML = `<b>${myPet.name}</b> is ${myPet.age} toma years old!`;
             if (myPet.age === 5){
-                // clearInterval(ageInter)
                 alert("congrats, your pet can evolve")
-            }}, 300)
+            }}, 6000)
         bored = setInterval(() => {
             myPet.bored++
             boredBar()
-            if (myPet.bored === 10){  // end game
-            // clearInterval(bored)
-            resetGame()
-            // clearInterval(boredBarInterval)
-            console.log("Sorry your pet got sick and died")
-            }}, 400);
+            if (myPet.bored === 10){ 
+                gameOver();
+            }}, 800);
         hunger = setInterval(() => {
             myPet.hunger++
-            hungryBar()                                //----> Mike Helped
-            if (myPet.hunger === 10){  // end game
-                // clearInterval(hunger)
-                resetGame()
-                // clearInterval(hungerBarInterval)       //----> Mike Helped
-                console.log("Sorry your pet starved to death")
-            }}, 100);    
+            hungryBar()                               
+            if (myPet.hunger === 10){ 
+                gameOver()
+            }}, 1600);    
         tired = setInterval(() => {
             myPet.tired++
             tiredBar()
-            if (myPet.hunger === 10 || myPet.tired === 10 || myPet.bored === 10){  // end game
+            if (myPet.hunger === 10 || myPet.tired === 10 || myPet.bored === 10){ 
                 clearInterval(tired)
-                resetGame()
-                // clearInterval(tiredBarInterval)
-                console.log("Sorry your pet went insane and commitd suicide")
-            }}, 300);    
+                gameOver()
+            }}, 2400);    
 })
 
 
-// resetGame()
-// //--> COUNTER  <--\\
-// //setInterval                                  1000 = one second
-// const inter = setInterval(() => {
-//     console.log('hi')
-//     }, 1000)
-// // clearInterval(inter) // to clear
-// // setInterval(() =>{
-// //     console.log("hello"), 1000
-// // })
-// const timeout = setTimeout(() => {
-//     clearInterval(inter); 
-//     console.log("done")
-//     }, 10000);
-// // setTimeout()
-// // clearTimeout()
-// /* <button onclick="myVar = setTimeout(myFunction, 3000)">Try it</button> */
 
 // Extras
 // Have your tomagotchi give birth to baby tomagotchi...

@@ -4,31 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/app.js" defer></script>
+    <title>TAMAGOTCHI</title>
+    <link rel="stylesheet" type="text/css" href="css/powerpractice.css">
+    <script src="js/powerpractice.js" defer></script>
 </head>
 <body>
     <div id="container">
         <header>
-            <h1>TOMAGOTCHI</h1>
-            <p><img src="" id="image"></p>
-            <p id="prompt"></p>
-            <!-- <img src="https://media3.giphy.com/media/l2RsBwQxFPXUvXmi0u/200w.webp?cid=ecf05e475ca2a29171574f38672f524e" -->
+            <h1>TAMAGOTCHI</h1>
+            <div class="z-index"><img src="" id="image"></div>
+            <div class="z-index"><p id="age-ticker">WELCOME!</p></div>
+            <input type="text" placeholder="name your pet!!!" id="submitScreen">
+            <br>
+            <button type="submit" class="submitBtn" id="submitBtn">submit</button>
+            <!-- <p id="prompt"></p> -->
         </header>
-        <footer>
-            <input id="hungry" class="view" value disabled>Hungry</input>
-            <button id="feed">Feed</button>
-        <br>
-            <input id="bored" class="view" value disabled>Bored</input>
-            <button id="play">Play</button>
-        <br>
-            <input id="tired" class="view" value disabled>Tired</input>
-            <button id="rest">Rest</button>
-        <br><br>
-            <input type="text" placeholder="name your pet" id="submitScreen">
-            <button type="submit" class="submitBtn">submit</button>
-        </footer>
-    </div>    
+<div id="bottom">
+<!-- BUILD A POWERBAR FROM 10 divs-->
+  <div class="status-block">
+    <h2>Hungry</h2>
+    <progress id="hungry-bar" value="0" max="10"></progress>
+    <button id="feed">FEED</button>
+  </div>
+  <div class="status-block">
+    <h2> Bored</h2>
+    <progress id="bored-bar" value="0" max="10"></progress>
+    <button id="play">PLAY</button>
+  </div>
+  <div class="status-block">
+    <h2> Tired</h2>
+    <progress id="tired-bar" value="0" max="10" color="red"></progress>
+    <button id="rest">REST</button>
+  </div>
 </body>
 </html>
