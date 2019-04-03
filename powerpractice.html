@@ -8,31 +8,29 @@
     <link rel="stylesheet" type="text/css" href="css/powerpractice.css">
     <script src="js/powerpractice.js" defer></script>
 </head>
-<body style="background-image: url(js/background-denim.jpg)">
+<body>
     <div id="container">
         <header>
             <h1>TAMAGOTCHI</h1>
             <div class="z-index"><img src="" id="image"></div>
             <div class="z-index"><p id="age-ticker">WELCOME!</p></div>
-            <input type="text" placeholder="name your pet!!!" id="submitScreen">
+            <input type="text" placeholder="let's name your pet!" id="submitScreen">
             <br>
             <button type="submit" class="submitBtn" id="submitBtn">submit</button>
-            <!-- <p id="prompt"></p> -->
         </header>
 <div id="bottom">
-<!-- BUILD A POWERBAR FROM 10 divs-->
   <div class="status-block">
     <h2>Hungry</h2>
     <progress id="hungry-bar" value="0" max="10"></progress>
     <button id="feed">FEED</button>
   </div>
   <div class="status-block">
-    <h2> Bored</h2>
+    <h2>Bored</h2>
     <progress id="bored-bar" value="0" max="10"></progress>
     <button id="play">PLAY</button>
   </div>
   <div class="status-block">
-    <h2> Tired</h2>
+    <h2>Tired</h2>
     <progress id="tired-bar" value="0" max="10" color="red"></progress>
     <button id="rest">REST</button>
   </div>
